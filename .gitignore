@@ -1,3 +1,4 @@
+_site/
 _drafts/
 .DS_Store
 .idea/
@@ -7,4 +8,3 @@ Gemfile.lock
 _posts/.MWebMetaData/
 .jekyll-metadata
 start
-_site/*
