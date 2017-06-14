@@ -32,13 +32,13 @@
     <nav id="toc">
       {% if site.filter == 'category' %}
         {% for post in site.posts %}
-          <a class="toc-link" data-tags="{{ post.categories | join: ' ' }}" href="{{ site.baseurl }} {{ post.url }}">
+          <a class="toc-link" data-tags="{{ post.categories | join: ' ' }}" href="{{ site.baseurl }}{{ post.url }}">
             {{ post.title }}
           </a>
         {% endfor %}
       {% elsif site.filter == 'tag' %}
         {% for post in site.posts %}
-          <a class="toc-link" data-tags="{{ post.tags | join: ' ' }}" href="{{ site.baseurl }} {{ post.url }}">
+          <a class="toc-link" data-tags="{{ post.tags | join: ' ' }}" href="{{ site.baseurl }}{{ post.url }}">
             {{ post.title }}
           </a>
         {% endfor %}
