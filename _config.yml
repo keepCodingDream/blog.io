@@ -21,8 +21,8 @@ github: keepCodingDream
 # linkedin: suyan0830
 
 # avatar and Favicon
-avatar: /site-avatar.png
-favicon: /site-favicon.ico
+avatar: /assets/img/avatar.png
+favicon: /assets/img/avatar.png
 
 # disqus config
 # disqus:
