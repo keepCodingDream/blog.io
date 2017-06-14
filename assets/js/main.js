@@ -1,7 +1,3 @@
----
-layout: null
----
-
 $(function() {
   var toc     = $('.toc-link'),
       sidebar = $('#sidebar'),
@@ -48,23 +44,7 @@ $(function() {
     });
 
     // discus comment.
-    {% if site.disqus.shortname %}
-      var ds_loaded = false;
-      window.disqus_shortname = "{{ site.disqus.shortname }}";
-      main.scroll(function(){
-        var nScrollHight = $(this)[0].scrollHeight;
-        var nScrollTop = $(this)[0].scrollTop;
-        if(!ds_loaded && nScrollTop + main.height() >= nScrollHight - 100) {
-          $.ajax({
-            type: 'GET',
-            url: 'http://' + disqus_shortname + '.disqus.com/embed.js',
-            dataType: 'script',
-            cache: true
-          });
-          ds_loaded = true;
-        }
-      });
-    {% endif %}
+    
     // your scripts
   };
   afterPjax();
@@ -101,7 +81,7 @@ $(function() {
     var filter = $(this).data('filter');
     toc.hide();
     if (filter === 'recent') {
-      toc.slice(0, {{ site.recent_num }}).fadeIn(350);
+      toc.slice(0, 20).fadeIn(350);
     } else {
       $('.toc-link[data-tags~=' + filter + ']').fadeIn(350);
     }
@@ -109,7 +89,7 @@ $(function() {
   });
   // Only show recent
   toc.hide();
-  toc.slice(0, {{ site.recent_num }}).fadeIn(350);
+  toc.slice(0, 20).fadeIn(350);
 
   // Menu
   menu.on('click', function() {
