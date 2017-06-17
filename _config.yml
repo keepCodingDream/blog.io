@@ -3,7 +3,7 @@ title: 陆仁杰的博客
 email: kobesky.lu@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   专注技术,分享心得
-baseurl: /blog.io/ # the subpath of your site, e.g. /blog/
+baseurl: # the subpath of your site, e.g. /blog/
 url: https://keepcodingdream.github.io/blog.io/ # the base hostname & protocol for your site
 rss_url: /pages/feed.xml
 author: Tracy.lu
