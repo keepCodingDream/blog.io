@@ -104,7 +104,7 @@ $$
 		        \mathbb{P}[|\nu-\mu|>\varepsilon] \leq 2exp(−2\varepsilon^{2}N)
 $$
 
-上面的公式就是著名的**霍夫丁不等式**。其中 $ \nu $ 是我们测试样本的概率，$\mu$是实际生产的概率，\\(\varepsilon\\)是容忍度，当$\varepsilon$非常小的时候，我们称 \\(\nu\\)与\\(\mu\\) **差不多**(PAC, probably approximately correct)。
+上面的公式就是著名的**霍夫丁不等式**。其中 `\( \nu \)` 是我们测试样本的概率，$\mu$ 是实际生产的概率，\\(\varepsilon\\)是容忍度，当$\varepsilon$非常小的时候，我们称 \\(\nu\\)与\\(\mu\\) **差不多**(PAC, probably approximately correct)。
 
 我们发现,只要让$2exp(−2\varepsilon^{2}N)$减小，就能让$\nu$与$\mu$ 差别很大的概率上限非常小。该函数是一个指数函数，$\varepsilon$是一个常数，**那么我们只需要让N(样本数量)变得很大，就能让$\nu$与$\mu$差不多**。
 
