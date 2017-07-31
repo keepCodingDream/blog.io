@@ -113,7 +113,7 @@ $$
 
 ![1.4](https://raw.githubusercontent.com/keepCodingDream/blog.io/master/assets/img/taiwan/1.4.png)
 
-f(x)是我们的目标函数，h(x)是属于hypothesis set $H$的某一个方程。
+f(x)是我们的目标函数，h(x)是属于hypothesis set H的某一个方程。
 
 
 * 如果h(x)≠f(x)，即他们判断不一致，我们记第n个小球是红色
