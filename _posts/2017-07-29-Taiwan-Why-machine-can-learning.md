@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 第一章——机器为何能够学习(台大机器学习课程)
-category: 台大机器学习课程
-keywords: 台大机器学习课程,机器学习,台大
+title: 第一章——机器为何能够学习
+category: 台大机器学习
+keywords: 台大机器学习,机器学习,台大
 ---
 
 ```
@@ -24,7 +24,7 @@ keywords: 台大机器学习课程,机器学习,台大
 
 > 机器学习架构
 
-![1.1](../assets/img/taiwan/1.1.png)
+![1.1](https://raw.githubusercontent.com/keepCodingDream/blog.io/master/assets/img/taiwan/1.1.png)
 
 上图是林轩田老师给出的机器学习的基础架构，让我来一一介绍一下每个部分的意义。(基于上面银行卡决策场景)
 
@@ -58,7 +58,7 @@ keywords: 台大机器学习课程,机器学习,台大
 
 让我们先从一道初中数学题来分析这个问题吧。
 
-![1.2](../assets/img/taiwan/1.2.png)
+![1.2](https://raw.githubusercontent.com/keepCodingDream/blog.io/master/assets/img/taiwan/1.2.png)
 
 ```	
 问题如上图所示，上面三个图y=-1,下面三个图y=+1。求最下面那个图的y值。
@@ -86,7 +86,7 @@ g2(左上角为黑色的图形)=−1
 
 > 霍夫丁不等式的证明
 
-![1.3](../assets/img/taiwan/1.3.png)
+![1.3](https://raw.githubusercontent.com/keepCodingDream/blog.io/master/assets/img/taiwan/1.3.png)
 
 让我们以从一个罐子里取求的例子来解释这个概率的问题吧。
 
@@ -107,7 +107,7 @@ $$
 
 有了上面的概率基础，我们再来看看今天的问题。
 
-![1.4](../assets/img/taiwan/1.4.png)
+![1.4](https://raw.githubusercontent.com/keepCodingDream/blog.io/master/assets/img/taiwan/1.4.png)
 
 f(x)是我们的目标函数，h(x)是属于hypothesis set $H$的某一个方程。
 
@@ -136,17 +136,17 @@ $$
 
 霍夫丁不等式告诉我们，在数量很大的情况下，测试数据集上的错误率会接近实际生产的错误率，这样我们就有了预测的前提。
 
-![1.5](../assets/img/taiwan/1.5.png)
+![1.5](https://raw.githubusercontent.com/keepCodingDream/blog.io/master/assets/img/taiwan/1.5.png)
 
 上图就是说明了，当霍夫丁不等式上线“上界”足够小时，我们可以说h在sample中的表现(错误率)与h在总体中的表现是差不多的。
 
-所以理论上，我们只需要在**训练数据集很大的情况下选择一个$E_{in}$很小h**，我们就可以说，我们选择的这个h的$E_{out}$也很小，也就是说我们学到了！
+所以理论上，我们只需要在**训练数据集很大的情况下选择一个$E_{in}$很小h**，我们就可以说，我们选择的这个h的 $E_{out}$ 也很小，也就是说我们学到了！
 
 > 总结
 
 我们回到文章最开始提到的，我们怎么去判断一个人是否可以发放信用卡呢？相信大家现在应该有一点思路了。
 
-我们选择过去的信用记录作为训练样本，我们选择一个在过去训练样本中出错最少的h作为g($E_{in}$最小)，霍夫丁不等式告诉我们在总体的样本中的错误率会和训练样本中的"差不多"。
+我们选择过去的信用记录作为训练样本，我们选择一个在过去训练样本中出错最少的h作为g( $E_{in}$ 最小)，霍夫丁不等式告诉我们在总体的样本中的错误率会和训练样本中的"差不多"。
 
 有了这样的前提，我们就可以说，我们能通过过去，预测未来！
 
