@@ -29,9 +29,8 @@ keywords: 台大机器学习,机器学习,台大
 上图是林轩田老师给出的机器学习的基础架构，让我来一一介绍一下每个部分的意义。(基于上面银行卡决策场景)
 
 * **unknown target function**
-
  	$$
-		        f = x \rightarrow y
+		f = x \rightarrow y
 	$$
 	   
    其中`x`为输入参数，即信用卡发放判断中的用户数据，`y`是最终决策，即用户是好人还是坏人。`f` 就是从输入到输出的决策函数。
@@ -102,7 +101,7 @@ $$
 		        \mathbb{P}[|\nu-\mu|>\varepsilon] \leq 2exp(−2\varepsilon^{2}N)
 $$
 
-上面的公式就是著名的**霍夫丁不等式**。其中 $\nu$ 是我们测试样本的概率，\(\mu\)是实际生产的概率，\\(\varepsilon\\)是容忍度，当$\varepsilon$非常小的时候，我们称 \\(\nu\\)与\\(\mu\\) **差不多**(PAC, probably approximately correct)。
+上面的公式就是著名的**霍夫丁不等式**。其中 $ \nu $ 是我们测试样本的概率，$\mu$是实际生产的概率，\\(\varepsilon\\)是容忍度，当$\varepsilon$非常小的时候，我们称 \\(\nu\\)与\\(\mu\\) **差不多**(PAC, probably approximately correct)。
 
 我们发现,只要让$2exp(−2\varepsilon^{2}N)$减小，就能让$\nu$与$\mu$ 差别很大的概率上限非常小。该函数是一个指数函数，$\varepsilon$是一个常数，**那么我们只需要让N(样本数量)变得很大，就能让$\nu$与$\mu$差不多**。
 
@@ -126,10 +125,15 @@ f(x)是我们的目标函数，h(x)是属于hypothesis set $H$的某一个方程
 
 那么对于h来说：
 
- $$ E_{out}(h)=\varepsilon[h(x)≠f(x)] $$
-
- $$E_{in}(h)=\frac {1} {N}\sum_{i=1}^n[h(x)≠y_{n}]$$
-
+ $$ 
+    E_{out}(h)=\varepsilon[h(x)≠f(x)]
+ $$
+ 
+ $$
+   E_{in}(h)=\frac {1} {N}\sum_{i=1}^n[h(x)≠y_{n}]
+ $$
+ 
+ 
 上面一节我们刚刚用霍夫丁不等式证明了N很大时测试样本的概率与生产样本的概率"差不多"。也就是$E_{in}$和$E_{out}$存在一个上限，使用霍夫丁不等式表示即为:
 
 $$
