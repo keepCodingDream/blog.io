@@ -48,7 +48,7 @@ $$ P(A|B) = \frac{P(B|A)P(A)}{P(B)} $$
 
 也就是说，后验概率与先验概率和相似度的乘积成正比。
 
-另外，比例P(B|A)/P(B)也有时被称作标准相似度（standardised likelihood），贝叶斯定理可表述为：
+另外，比例\\(P(B|A)/P(B)\\)也有时被称作标准相似度（standardised likelihood），贝叶斯定理可表述为：
 
 后验概率 = 标准相似度*先验概率
 
