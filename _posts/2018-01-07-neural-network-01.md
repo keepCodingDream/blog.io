@@ -88,3 +88,118 @@ $$
 	其中A^0=X
 $$
 
+## 矩阵与损失函数
+上文锁提到的所有运算法则都是基于矩阵去运算的。例如，样本1是(x1=1,x2=2);样本2是(x1=3,x2=4)。假设我们的训练集就只有这两个样本，那么我们的输入矩阵X就可以表示为:
+
+$$
+X=\begin{bmatrix} 1 & 2 \\ 3 & 4 \\ \end{bmatrix}
+$$
+
+没错，我们就是将所有训练样本一次性全部放入一个矩阵中，借此来提高整个训练的速度。
+
+大家应该可以从矩阵的形状观察出来，矩阵的每一列代表了一组训练样本。所以如果X的shape是(m,n)就代表了: **训练样本有m个，每个样本有n个维度。**
+
+所以，相应的，\\(W^1\\) 的shape就是(n,1)。因为无论有多少个训练样本都不会影响我们权重矩阵，权重矩阵只与样本维度有关。以矩阵表示就是(`权重的数值为我们假设的值`):
+
+$$
+W^1=\begin{bmatrix} 1 \\ 3 \\ \end{bmatrix}
+$$
+
+
+计算公式中的 `b` 被我们理解为`偏移量`。这个不难理解，它避免了我们的线性函数使用经过原点。
+
+由矩阵的运算法则可知，b的shape应该等于X的行和W的列:
+
+$$
+  b=\begin{bmatrix} 2 \\ 2 \\ \end{bmatrix}
+$$
+
+所以，正向传播中的计算都是基于上面对数据的矩阵表达来进行的。
+
+经过一整套矩阵运算以后，我们最终可以得到最终的预测结果`P`。如果你之前接触过梯度下降，那么你一定猜到了下面应该怎么做。
+
+没错，就是根据预测结果`A`和真实的结果`Y`之间的误差,反过来更新W和b。当然了，这是反向传播做的事情，我们在这一步先定义一个`损失函数`用来表达真实值与预测值之间的误差程度。
+
+$$
+  L=-\frac{1}{n} \sum_{i=1}^n y^i*log(a^i)+(1-y)*log(1-a^i)
+$$
+
+## 反向传播
+
+![](https://raw.githubusercontent.com/keepCodingDream/blog.io/master/assets/img/neural/1.2.png)
+
+先放一张反向传播的示意图，图中红线部分就是由计算记过反向更新权重矩阵的路径(为了清晰表达，1.1中正向传播的线已经去掉)。
+
+从图中可以清晰看出，每一层都是由上一层的反馈结果去更新，其中虚线部分标出的是输入参数，由于权重更新没有意义，所以以虚线表达，在实际计算中也不会更新。
+
+每次更新的公式可以表达为:
+
+$$
+W = W - \alpha \frac{\partial L}{\partial W}
+$$
+
+$$
+b = b - \alpha \frac{\partial L}{\partial b}
+$$
+
+以下是详细求导过程，对求导部分较为熟悉的读者可以忽略。
+$$
+ \color {#red} {--------update \quad value \quad for \quad W----------}
+$$
+
+$$
+	\frac{\partial L}{\partial W}=\frac{\partial L}{\partial A}*\frac{\partial A}{\partial Z}*\frac{\partial Z}{\partial W}
+$$
+
+$$
+	\frac{\partial L}{\partial W}=\frac{1}{n}(-\frac{Y}{A}+\frac{1-Y}{1-A})*(A(1-A))*X
+$$
+
+$$
+\frac{\partial L}{\partial W}=\frac{1}{n}(A-Y)*X
+$$
+
+$$
+ \color {#red} {--------update \quad value \quad for \quad b----------}
+$$
+
+$$
+\frac{\partial L}{\partial b}=\frac{\partial L}{\partial A}*\frac{\partial A}{\partial Z}*\frac{\partial Z}{\partial b}
+$$
+
+$$
+\frac{\partial L}{\partial b}=\frac{1}{n}(-\frac{Y}{A}+\frac{1-Y}{1-A})*(A(1-A))*1
+$$
+
+$$
+\frac{\partial L}{\partial b}=\frac{1}{n}(A-Y)
+$$
+
+
+有了上面的推导公式，我们能就能从最后一个节点(第N层，也就是预测结果)以此递推更新W、b
+
+我们仿照正向传播的形式，总结出以下递推式:
+
+$$
+  d_{w^{(n-1)}}=\frac{1}{n}(A^n-Y^n)*A^{(n-1)}
+$$
+
+$$
+  d_{b^{(n-1)}}=\frac{1}{n}(A^n-Y^n)
+$$
+
+所以，我们只要按照这样的规律，遍历整个神经网络的深度，就可以得到每一层的权重，也就完成了训练。整个伪代码总结如下:
+
+$$
+	\color {#red} {for \quad i \quad from \quad n-1 \quad to \quad 1:}
+$$
+
+$$
+   W^i=W^i- \alpha * \frac{1}{n}(A^{i+1}-Y^{i+1})*A^{(i)}
+$$
+
+$$
+   b^i=b^i- \alpha * \frac{1}{n}(A^{i+1}-Y^{i+1})
+$$
+
+
