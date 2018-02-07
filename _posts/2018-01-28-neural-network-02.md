@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 神经网络训练的训练技巧
+title: 神经网络训练的训练技巧(一)
 category: 深度学习
 keywords: 深度学习
 ---
@@ -8,7 +8,7 @@ keywords: 深度学习
 > 学完理论原理以后，我们再来看看如何在实战中获得更好的模型
 
 
-# 深度学习中的常见问题(一)
+# 深度学习中的常见问题
 ### 偏差与方差
 
 > 在进行神经网络训练过程是一个不断迭代、调优参数的过程，但如何去判定一个神经网络的好坏呢？
@@ -69,6 +69,7 @@ $$
 $$
 
 **L1正则化:**
+
 $$
   ||W^l||_1=\sum_{i=1}^m w_i
 $$
@@ -113,7 +114,7 @@ $$
 ## 优化训练
 ### 正则化输入
 
-![](https://raw.githubusercontent.com/keepCodingDream/blog.io/master/assets/img/neural/2.3.png)
+![](https://raw.githubusercontent.com/keepCodingDream/blog.io/master/assets/img/neural/2.4.png)
 
 上图中的左边代表了维度单位差别很大的输入参数图以及梯度下降过程中的路径，而右边则是经过正则化输入的。
 
