@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 性能探秘——架构篇
+title: 性能优化——架构篇
 category: 性能优化
 keywords: 性能优化之
 ---
